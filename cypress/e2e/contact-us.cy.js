@@ -10,7 +10,11 @@ describe("Test Contact Us form via WebdriverUni", ()=> {
         cy.get('[type="submit"]').click()
     });
     it("Should not be able to submit a Successful submition via Contact Us form as all fields are required", () =>{
-      
+        cy.visit("http://www.webdriveruniversity.com/Contact-Us/contactus.html")
+        cy.get('[name="first_name"]').type("John")
+        cy.get('[name="last_name"]').type("Doe")
+        cy.get('textarea.feedback-input').type("This is some comment.")
+        cy.get('[type="submit"]').click()
     });
     
 });
