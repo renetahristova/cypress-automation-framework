@@ -1,8 +1,13 @@
 ///<reference types = "Cypress"/>
 
 describe("Test Contact Us form via WebdriverUni", () => {
-    it("Should be able to submit a Successful submition via Contact Us form", () => {
+    it.only("Should be able to submit a Successful submition via Contact Us form", () => {
         cy.visit("http://www.webdriveruniversity.com/Contact-Us/contactus.html")
+        //-----
+        cy.document().should('have.property', 'charset').and('eq', 'UTF-8');
+        cy.title().should("include", "WebDriver | Contact Us");
+        cy.url().should('include', 'Contact-Us');
+        //-----
         cy.get('[name="first_name"]').type("John")
         cy.get('[name="last_name"]').type("Doe")
         cy.get('[name="email"]').type("john@email.com")
